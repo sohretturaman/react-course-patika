@@ -1,12 +1,19 @@
 /** @format */
 
+import { useState } from "react";
 import "./App.css";
-import Input from "./components/Input";
+
+import Unmount from "./components/Unmount";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(true);
   return (
     <div className="App">
-      <Input />
+      {isVisible && <Unmount />}
+      <button onClick={() => setIsVisible(!isVisible)}>
+        {" "}
+        unmount the componet
+      </button>
     </div>
   );
 }
