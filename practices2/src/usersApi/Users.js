@@ -12,7 +12,7 @@ function Users() {
         setUsers(res.data);
         console.log(res.data);
       })
-      .catch((err) => console.log("an error has been occured"))
+      .catch((err) => console.log("an error has been occured",err))
       .finally(() => setIsLoading(false));
   }, []);
 
