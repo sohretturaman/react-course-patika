@@ -1,13 +1,13 @@
-import AComp from "./A";
-import BComp from "./B";
+/** @format */
 
+import Users from "./usersApi/Users";
 
-
+import React from "react";
+import './App.css'
 function App() {
   return (
-    <div >
-        <BComp/>
-        <AComp/>
+    <div className="App">
+      <Users />
     </div>
   );
 }
