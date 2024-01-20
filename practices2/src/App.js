@@ -2,6 +2,10 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Home from "./screens/Home";
+import About from "./screens/About";
+import User from "./screens/User";
+import Users from "./screens/Users";
 
 function App() {
   return (
@@ -18,34 +22,20 @@ function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
+       
           </ul>
         </nav>
-        </div>
-        {/* A <Switch> looks through its children <Route>s and
+      </div>
+      {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Routes>
-          <Route path="/about" Component={About}/>
-          
-          <Route path="/users" Component={Users}/>
-          
-          <Route path="/" Component={Home} />
-           
-        </Routes>
-  
+      <Routes>
+        <Route path="/" Component={Home} />
+        <Route path="/about" Component={About} />
+        <Route path="/users" Component={Users} />
+        <Route path="/user/:id" Component={User} />
+      </Routes>
     </Router>
   );
-}
-
-function Home() {
-  return <h2 >Home </h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;
