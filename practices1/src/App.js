@@ -1,19 +1,13 @@
 /** @format */
 
-import { useState } from "react";
 import "./App.css";
 
-import Unmount from "./components/Unmount";
+import Index from "./secondComps/Index";
 
 function App() {
-  const [isVisible, setIsVisible] = useState(true);
   return (
     <div className="App">
-      {isVisible && <Unmount />}
-      <button onClick={() => setIsVisible(!isVisible)}>
-        {" "}
-        unmount the componet
-      </button>
+      <Index />
     </div>
   );
 }

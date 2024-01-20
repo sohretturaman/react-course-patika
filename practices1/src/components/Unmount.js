@@ -15,6 +15,9 @@ function Unmount() {
     //return () => console.log("component is unmounted"); // the place to clean up
   }, []); // give the state which you want to track, if it is empty it will to watch all states
 
+  useEffect(() => {
+    console.log("counter value is updated, catched differance with useState");
+  }, [counter]); //dependency array
   return (
     <div>
       unmount example
