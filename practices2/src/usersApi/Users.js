@@ -1,25 +1,31 @@
 /** @format */
 
 import React, { useEffect, useState } from "react";
-import styles from './users.module.css'
+import styles from "./users.module.css";
+import axios from "axios";
 function Users() {
-const [users,setUsers] =useState([]); 
-    useEffect(()=>{
-        const getUsers=async()=>{
-            fetch('https://jsonplaceholder.typicode.com/users')
-            .then((res)=>res.json())
-            .then((data)=>setUsers(data))
-        }
-        getUsers(); 
-    },[])
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    axios("https://jsonplaceholder.typicode.com/users")
+      .then((res) => {
+        setUsers(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log("an error has been occured"))
+      .finally(() => setIsLoading(false));
+  }, []);
+
+  {
+    isLoading && <div>Loading..</div>;
+  }
 
   return (
     <div style={styles.wrapper}>
       <p>hello world</p>
-      {users.map((user)=>
-      <div>
-         {user.name}
-      </div> )}
+      {users.map((user) => (
+        <div key={user.id}>{user.username}</div>
+      ))}
     </div>
   );
 }
