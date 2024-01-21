@@ -9,6 +9,7 @@ const User = () => {
   const [user,setUser] =useState({}); 
   const[isLoading,setIsLoading] =useState(true); 
   const { id } = useParams();
+  console.log('id from users',id);
   useEffect(()=>{
     
     axios(`https://jsonplaceholder.typicode.com/users/${id}`)
