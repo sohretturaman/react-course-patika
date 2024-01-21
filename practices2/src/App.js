@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Routes,NavLink } from "react-router-dom";
 import Home from "./screens/Home";
 import About from "./screens/About";
 import Users from "./screens/Users";
@@ -14,13 +14,19 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink  className={({ isActive }) => (isActive ? "active" : "")} to="/">Home</NavLink>
             </li>
             <li>
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <NavLink  style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "black",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }} to="/users">Users</NavLink>
             </li>
        
           </ul>
