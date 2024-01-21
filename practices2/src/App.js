@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link, Routes,NavLink } from "react-rout
 import Home from "./screens/Home";
 import About from "./screens/About";
 import Users from "./screens/Users";
+import Error from "./screens/Error";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <NavLink  style={({ isActive, isPending, isTransitioning }) => {
+              <NavLink   style={({ isActive, isPending, isTransitioning }) => {
     return {
       fontWeight: isActive ? "bold" : "",
       color: isPending ? "red" : "black",
@@ -38,7 +39,7 @@ function App() {
         <Route path="/" Component={Home} />
         <Route path="/about" Component={About} />
         <Route path="/users/*" Component={Users} />
-      
+         <Route path="*" Component={Error}/>
       </Routes>
     </Router>
   );
