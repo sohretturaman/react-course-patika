@@ -2,7 +2,7 @@ import React from 'react'
 import { useFormik} from "formik";
 import {validation} from './AuthYup';
 function Signup() {
-    const {values, handleChange, handleSubmit } = useFormik({
+    const {values, handleChange, handleSubmit,errors,touched,handleBlur } = useFormik({
         initialValues: {
        email:'',
        password:'',
@@ -24,7 +24,9 @@ function Signup() {
               placeholder="meryemsohret0@gmail.com"
               value={values.email}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
+            {errors.email && touched.email && <p className='error'>{errors.email}</p>}
             <br />
             <br />
             <label >password </label>
@@ -34,7 +36,9 @@ function Signup() {
               placeholder=""
               value={values.password}
               onChange={handleChange}
+              onBlur={handleBlur} //show errors when unfocued on input
             />
+            {errors.password && touched.password && <p className='error'>{errors.password}</p>}
             <br />
             <br />
             <label >Email </label>
@@ -44,7 +48,9 @@ function Signup() {
               placeholder=""
               value={values.confPassword}
               onChange={handleChange}
+              onBlur={handleBlur}
             />
+            {errors.confPassword && touched.confPassword && <p className='error'>{errors.confPassword}</p>}
             <br />
             <br />
   
