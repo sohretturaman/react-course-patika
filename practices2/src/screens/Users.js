@@ -41,3 +41,38 @@ function Users() {
 }
 
 export default Users;
+
+
+{/** Router from App.js
+
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <NavLink  className={({ isActive }) => (isActive ? "active" : "")} to="/">Home</NavLink>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <NavLink   style={({ isActive, isPending, isTransitioning }) => {
+    return {
+      fontWeight: isActive ? "bold" : "",
+      color: isPending ? "red" : "black",
+      viewTransitionName: isTransitioning ? "slide" : "",
+    };
+  }} to="/users">Users</NavLink>
+            </li>
+       
+          </ul>
+        </nav>
+      </div>
+ 
+            <Routes>
+            <Route path="/" Component={Home} />
+            <Route path="/about" Component={About} />
+            <Route path="/users/*" Component={Users} />
+             <Route path="*" Component={Error}/>
+          </Routes>
+        </Router>*/}

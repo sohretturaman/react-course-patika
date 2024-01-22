@@ -1,47 +1,93 @@
 /** @format */
 
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Routes,NavLink } from "react-router-dom";
-import Home from "./screens/Home";
-import About from "./screens/About";
-import Users from "./screens/Users";
-import Error from "./screens/Error";
-
+import { Formik } from "formik";
+import "./App.css";
 
 function App() {
   return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <NavLink  className={({ isActive }) => (isActive ? "active" : "")} to="/">Home</NavLink>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <NavLink   style={({ isActive, isPending, isTransitioning }) => {
-    return {
-      fontWeight: isActive ? "bold" : "",
-      color: isPending ? "red" : "black",
-      viewTransitionName: isTransitioning ? "slide" : "",
-    };
-  }} to="/users">Users</NavLink>
-            </li>
-       
-          </ul>
-        </nav>
-      </div>
-      {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/about" Component={About} />
-        <Route path="/users/*" Component={Users} />
-         <Route path="*" Component={Error}/>
-      </Routes>
-    </Router>
+    <div className="App">
+      <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          gender:"female",
+          country:"",
+          hobies:[]
+        }}
+        onSubmit={(values) => console.log(values)}
+      >
+        {({ values, handleChange, handleSubmit }) => (
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              value={values.firstName}
+              onChange={handleChange}
+            />
+            <br />
+            <br />
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              value={values.lastName}
+              onChange={handleChange}
+            />
+            <br /> <br />
+            <label>Selecet Gender : </label>
+            <span>Male</span>
+            <input
+              type="radio"
+              name="gender"
+              value={"male"}
+              onChange={handleChange}
+            />
+            <span>Female</span>
+            <input
+              type="radio"
+              name="gender"
+              value={"female"}
+              onChange={handleChange}
+              checked={values.gender === "female"}
+            />
+         <br /> <br />
+            <span >Chose your country </span>
+            <br/>
+             <select name={values.country} onChange={handleChange}>
+              <option value={'tr'}  onClick={()=>console.log('turkiye has been clicked')}> Turkiye</option>
+              <option value={'eg'}>Egypt</option>
+              <option value={'fr'} >France</option>
+             </select>
+            <br /> <br />
+            <span> chose your hobies</span>
+              <br/>
+               <div>
+                <input type="checkbox" name={'hobies'} value={'football'} 
+                onChange={handleChange}
+                />
+                footbal
+               </div>
+               <div>
+                <input type="checkbox" name={'hobies'} value={'coding'} onChange={handleChange}/>
+                coding
+               </div>
+               <div>
+                <input type="checkbox" name={'hobies'} value={'reading'}
+                onChange={handleChange}/>
+                reading book
+               </div>
+            <br /> <br />
+            <button type="submit">Submit</button>
+            <br /> <br />
+            <pre>{JSON.stringify(values, null, 2)}</pre>
+          </form>
+        )}
+      </Formik>
+    </div>
   );
 }
 
