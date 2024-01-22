@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import "./App.css";
 import Header from "./reactMemo/Header";
@@ -13,15 +13,21 @@ const [number,setNumber] =useState(0);
  
 
 const data = useMemo(()=>{
+  
   return {name:"Meryem sohret",age:21,city:"istanbul"}
 },[]) // that updates data based on dependecy
 
+const handleIncrement=useCallback(()=>{
+ setNumber((prev)=>prev+1); // dont use number state, otherwise need to use number state in dependency, 
+ //that couses rerender in header component
+},[])
+
 return (
     <div className="App">  
-     <Header  data={data} />
+     <Header increment={handleIncrement} data={data} />
+     {number}
      <hr/>
-      {number}
-        <button onClick={() => setNumber(number + 1)}>press</button>
+     
     </div>
   );
 }
