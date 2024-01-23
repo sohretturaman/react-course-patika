@@ -1,12 +1,15 @@
+/** @format */
 
-
-import Main from './components/Main';
-import { ThemeContextProvider } from './context/ThemeContext';
+import Main from "./components/Main";
+import { ThemeContextProvider } from "./context/ThemeContext";
+import { UserContextProvider } from "./context/UserContext";
 
 function App() {
   return (
-    <ThemeContextProvider >
-       <Main/>
+    <ThemeContextProvider>
+      <UserContextProvider>
+        <Main />
+      </UserContextProvider>
     </ThemeContextProvider>
   );
 }

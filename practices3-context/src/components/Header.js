@@ -7,8 +7,8 @@ function Header() {
     const {theme,setTheme} =useContext(ThemeContext); 
   return (
     <div>
-      <h1>Context Api Example !!</h1>
-      <p>Theme value : {theme}</p>
+      <h1>Login Page !!</h1>
+     {/*  <p>Theme value : {theme}</p> */}
       <button onClick={()=>setTheme(theme==='dark'? 'light':'dark')}>Change Theme</button>
     </div>
   );

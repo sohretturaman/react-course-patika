@@ -5,14 +5,18 @@ import Button from "./Button";
 import Header from "./Header";
 import { ThemeContext } from "../context/ThemeContext";
 import styles from "./style.module.css";
+import UserLogin from "./UserLogin";
 function Main() {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${styles.app} ${styles[theme]}`}>
-      <Header />
+    {/*   <Header />
       <hr />
-
-      <Button />
+      <Button /> */}
+       <Header />
+       <hr/>
+       <br/>
+      <UserLogin/>
     </div>
   );
 }
