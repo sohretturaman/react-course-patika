@@ -1,11 +1,11 @@
 /** @format */
 
-import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import React from "react";
+import {useTheme} from "../context/ThemeContext";
 
 function Button() {
     
-    const {theme,setTheme} = useContext(ThemeContext); 
+    const {theme,setTheme} = useTheme(); 
   return (
     <div>
       <h3>Theme Val : {theme}</h3>

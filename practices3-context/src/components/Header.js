@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContext";
+import React from "react";
+import { useTheme } from "../context/ThemeContext";
 
 function Header() {
-    const {theme,setTheme} =useContext(ThemeContext); 
+    const {theme,setTheme} =useTheme(); 
   return (
     <div>
       <h1>Login Page !!</h1>

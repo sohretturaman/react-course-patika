@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useContext, useState } from "react";
-import { UserContext } from "../context/UserContext";
+import React, {  useState } from "react";
+import { useUserContext } from "../context/UserContext";
 
 function UserLogin() {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useUserContext();
   const [loginInfo, setLoginInfo] = useState({ name: "", lastName: "" });
   console.log('user ',user);
 

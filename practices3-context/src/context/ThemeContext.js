@@ -1,6 +1,6 @@
 /** @format */
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
 
@@ -19,3 +19,5 @@ export const ThemeContextProvider = ({ children }) => {
     <ThemeContext.Provider value={value}>{children} </ThemeContext.Provider>
   );
 };
+
+ export const useTheme =() => useContext(ThemeContext); //created custom context hook

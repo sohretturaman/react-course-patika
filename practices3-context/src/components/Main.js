@@ -1,13 +1,12 @@
 /** @format */
 
-import React, { useContext } from "react";
-import Button from "./Button";
+import React  from "react";
 import Header from "./Header";
-import { ThemeContext } from "../context/ThemeContext";
+import { useTheme } from "../context/ThemeContext";
 import styles from "./style.module.css";
 import UserLogin from "./UserLogin";
 function Main() {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useTheme();
   return (
     <div className={`${styles.app} ${styles[theme]}`}>
     {/*   <Header />
