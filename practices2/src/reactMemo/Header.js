@@ -15,6 +15,9 @@ function Header({data,increment}) {
   )
 }
 
+Navigation.navigate('Display',{name:_namecontoller})
+  
+
 export default React.memo(Header);//avoiding rerenders with memo
 
 //callback is using to avoidign rerenders on functions especially when giving it in comp as paramather!
