@@ -19,3 +19,27 @@ export const  sendColor =(color)=>{
   //which determined in app.js file inside backend folder 
   //newColor is channel name , and color is my data to send server
 }
+
+
+
+export const subscribe = (cb) => {
+	socket.on("receive", (color) => {
+		console.log(color);
+		cb(color);
+	});
+};
+
+
+
+
+
+/* export const subscribe = (cb)=>{ //cb is a callback function !!
+	//subscribed recive channel to get last color's info  from all pages
+	console.log('subscribe is worked');
+	
+	socket.on('recive',(color)=>{
+		console.log('picked lsast color',color); //got the picked color
+       cb(color);  //got color info to display on app.js
+		
+	})
+} */
