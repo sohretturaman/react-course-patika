@@ -1,0 +1,40 @@
+
+.App{
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: row;
+}
+.palette{
+  display: flex;
+  flex-direction: column;;
+  margin-top: 40px;
+}
+input{
+padding: 2px;
+}
+.palette button {
+  background-color: brown;
+  padding: 5px; 
+  color: white; 
+
+}
+
+.app{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+ flex-direction: column;
+ align-content: center;
+ justify-content: center;
+}
+
+.app.dark{
+  background-color: black;
+  color:beige;
+}
+.app.light{
+  background-color: white;
+  color: #000;
+}
