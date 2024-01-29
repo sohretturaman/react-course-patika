@@ -1,41 +1,46 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import {IntlProvider, FormattedMessage} from 'react-intl'
 
 function App() {
-  const [lang,setLang] =useState('en');
-  const defaultLang= navigator.language;
+const localVal= localStorage.getItem('locale'); 
+  const defaultLang= localVal? localVal : navigator.language;
+  const [locale,setLocale] = useState(defaultLang);
   console.log('default lang', defaultLang);
 
 
+useEffect(()=>{
+  localStorage.setItem('locale',locale); 
+},[locale])
+
   const messages ={
-    'en':{
+    'en-US':{
       id:'msg',
-    desc:'you have a new message'
+    desc:'you have {count} new messages from {name} at {time}'
     },
-    'tr':{
+    'tr-TR':{
       id:'msg',
-      desc:'yeni bir mesaj var'
+      desc:' {name} kişisinden,{count} adet yeni mesaj var {time}'
     }
     
   }
   //intl provider should be placed at the top
   return (
     <div className="App">
-   <IntlProvider messages={messages[lang]} >
+   <IntlProvider locale={locale}messages={messages[locale]} >
      <FormattedMessage 
      id='id'
-
+  
      />
      <p>
-     <FormattedMessage  id='desc'/> </p>
+     <FormattedMessage  id='desc'  values={{name:'Meryem sohret', time:new Date().getHours()+':'+new Date().getMinutes(),count:5 }}/> </p>
     
      <br/>
      <br/>
-     <button onClick={()=>setLang('tr')}>TR</button>
+     <button onClick={()=>setLocale('tr-TR')}>TR</button>
  
-     <button onClick={()=>setLang('en')}> EN</button>
+     <button onClick={()=>setLocale('en-US')}> EN</button>
    </IntlProvider>
 
     </div>
