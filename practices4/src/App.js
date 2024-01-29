@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import {IntlProvider, FormattedMessage} from 'react-intl'
-import Counter from './Tester/Counter';
+//import Counter from './Tester/Counter';
+import Todo from './Todo';
 
 function App() {
 const localVal= localStorage.getItem('locale'); 
@@ -44,9 +45,12 @@ useEffect(()=>{
      <button onClick={()=>setLocale('en-US')}> EN</button>
    </IntlProvider>
 
+<br/>
+<br/>
 
  {/* <h1>Tester Component</h1> */}
-   <Counter/>
+   {/* <Counter/> */}
+   <Todo/>
     </div>
   );
 }
