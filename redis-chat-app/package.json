@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-modern-drawer": "^1.2.2"
+    "react-modern-drawer": "^1.2.2",
+    "strmn": "^1.0.0"
   }
 }
