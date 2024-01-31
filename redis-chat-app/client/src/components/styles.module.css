@@ -1,0 +1,37 @@
+.container{
+    width: 100vw ;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+     flex-direction: column;
+   
+    
+}
+.chatsWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  
+}
+.listContainer{
+    flex-direction: row;
+    display: flex;
+    
+    
+}
+.chats{
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(83, 70, 196); 
+}
+.senderNameWrapper{
+    display: flex;
+    background-color: rgb(83, 70, 196); 
+    width: 100%;
+    
+    
+}
+
+.onClickChat{
+    background-color: white;
+}
