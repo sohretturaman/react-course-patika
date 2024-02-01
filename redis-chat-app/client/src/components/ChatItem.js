@@ -8,7 +8,7 @@ function ChatItem({item}) {
 
   return (
     <div className={styles.itemWrapper}>
-      <div className={messageClassName}>
+      <div className={messageClassName }>
         <div className={styles.msgText}>{item.message}</div>
       </div>
     </div>

@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
 
 	socket.on("new-message", (message) => {
 		console.log(message);
-		Messages.upsert({ message });
+		Messages.upsert({ message }); //writes on redis !!!
 
 		socket.broadcast.emit("receive-message", message);
 	});

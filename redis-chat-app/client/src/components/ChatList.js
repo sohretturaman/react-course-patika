@@ -19,12 +19,15 @@ const ChatList = () => {
       <PeopleList />
     </div>
     <div className={styles.chatWrapper}> {/* Wrap in a flex container */}
-      <div className={styles.chatsWrapper} style={{marginBottom:300}}>
+      <div className={styles.chatsWrapper} style={{marginBottom:500}}>
         <div>
           <Header />
         </div>
-        {messages.map((item) => (
-          <ChatItem item={item} key={item.id} />
+        {messages.map((item,index) => (
+          <div key={index}>
+                <ChatItem item={item} key={item.id} />
+             </div>
+      
         ))}
       </div>
       <ChatInput />
