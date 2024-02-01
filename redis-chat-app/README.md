@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+### project overview
+
+![chatApp](https://github.com/sohretturaman/react-course-patika-practices/assets/81382575/5d640159-397b-4095-a99e-8fc22e854f26)
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -18,9 +23,7 @@ You may also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-### project overview
 
-![chatApp](https://github.com/sohretturaman/react-course-patika-practices/assets/81382575/5d640159-397b-4095-a99e-8fc22e854f26)
 
 ### `npm run build`
 
