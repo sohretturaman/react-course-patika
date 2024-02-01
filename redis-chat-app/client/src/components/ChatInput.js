@@ -9,7 +9,7 @@ const{setMessages} = useChat();
   const handleSubmit =(e)=>{
     e.preventDefault(); // Prevent default form submission
     
-    setMessages((prev)=>[...prev,{message,fromMe:true}])
+    setMessages((prev)=>[...prev,{message}])
     sendMessage(message); 
     setMessage('');
   }
